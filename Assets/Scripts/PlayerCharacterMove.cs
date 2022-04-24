@@ -108,6 +108,7 @@ public class PlayerCharacterMove : MonoBehaviour
         else if (temp_Velocity.x != 0){
           temp_Velocity.x = -temp_Velocity.x * stopping_speed;
           temp_Velocity.y = 0.0f;
+          temp_Velocity.z = 0.0f;
           p_Rigid.AddForce(temp_Velocity, ForceMode.VelocityChange);
         }
         /*

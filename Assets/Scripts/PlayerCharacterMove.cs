@@ -127,6 +127,16 @@ public class PlayerCharacterMove : MonoBehaviour
         */
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("powerUp"))
+        {
+            other.gameObject.SetActive(false);
+            // Add powerUp flag processing here!!!!!
+        }
+    }
+
     /*
     private void OnTriggerEnter(Collider other)
     {

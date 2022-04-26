@@ -20,7 +20,7 @@ public class Emitter : MonoBehaviour
     {
         if (other.transform == player_pos)
         {
-            time_start = Time.deltaTime;
+            //Might need logic here for strictly contact entities
         }
     }
 

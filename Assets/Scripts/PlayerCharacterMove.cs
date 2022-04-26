@@ -88,7 +88,7 @@ public class PlayerCharacterMove : MonoBehaviour
           Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
           p_Rigid.AddForce(jump - p_Rigid.velocity, ForceMode.VelocityChange);
 
-          if (!in_air && doublejump_enabled) {
+          if (!in_air && doublejump_enabled && player_stats.player_energy >= jump_cost) {
               player_stats.player_energy -= jump_cost;
               in_air = true;
           }

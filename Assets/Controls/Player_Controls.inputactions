@@ -34,21 +34,21 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "d2dbf7a8-f100-477a-b425-5515f93d62f3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Absorb",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "19f1ac24-5a7b-45aa-841c-4c54e003de14",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

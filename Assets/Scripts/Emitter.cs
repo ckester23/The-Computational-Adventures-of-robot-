@@ -5,10 +5,11 @@ using UnityEngine;
 public class Emitter : MonoBehaviour
 {
     public int energy_per_sec = 0;
+    public bool is_damage_only = false;
 
     public Transform player_pos;
     public PlayerCharacterAbilities player_stats;
-    public EventHandler eventHandler;
+    //public EventHandler eventHandler;
 
     private float time_start;
     private float current_time;
@@ -53,10 +54,13 @@ public class Emitter : MonoBehaviour
             {
                 if (raycastHit.collider.transform == player_pos)
                 {
-                    current_time = Time.deltaTime;
-                    player_stats.ApplyEnergy((current_time - time_start) * energy_per_sec);
-
-                    time_start = current_time;
+                    if (is_damage_only) {
+                        player_stats.ApplyDamage();
+                    }
+                    else {
+                        current_time = Time.deltaTime;
+                        player_stats.ApplyEnergy(current_time * energy_per_sec);
+                    }
                 }
             }
         }

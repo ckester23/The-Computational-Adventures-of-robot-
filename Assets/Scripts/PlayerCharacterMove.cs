@@ -9,6 +9,7 @@ public class PlayerCharacterMove : MonoBehaviour
     public float speed = 1;
     public float jump_power = 1;
     public float stopping_speed = 1;
+    public float descent_speed = 1;
     //public TextMeshProUGUI countText;
     //public GameObject winTextObject;
 
@@ -21,7 +22,6 @@ public class PlayerCharacterMove : MonoBehaviour
     private int health;
     private bool in_air;
     private bool jumps_used = false;
-    //Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
 
     Vector3 z_coord;
     float velocity_x;
@@ -76,7 +76,7 @@ public class PlayerCharacterMove : MonoBehaviour
     {
       if (!jumps_used) {
           Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
-          p_Rigid.AddForce(jump, ForceMode.Impulse);
+          p_Rigid.AddForce(jump - p_Rigid.velocity, ForceMode.VelocityChange);
 
           if (!in_air) {
               in_air = true;
@@ -118,10 +118,14 @@ public class PlayerCharacterMove : MonoBehaviour
           p_Rigid.AddForce(temp_Velocity, ForceMode.VelocityChange);
         }
         /*
-        p_Movement.Set(movementX, 0.0f, 0.0f);
-
-        p_Rigid.AddForce(speed * p_Movement);
+        if (temp_Velocity.y < 0){
+          temp_Velocity.x = 0.0f;
+          temp_Velocity.y = -descent_speed;
+          temp_Velocity.z = 0.0f;
+          p_Rigid.AddForce(temp_Velocity, ForceMode.VelocityChange);
+        }
         */
+
     }
     /*
     private void OnTriggerEnter(Collider other)

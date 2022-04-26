@@ -23,6 +23,7 @@ public class PlayerCharacterMove : MonoBehaviour
     private bool jumps_used = false;
     //Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
 
+    Vector3 z_coord;
     float velocity_x;
     Vector3 temp_Velocity;
     Vector3 p_Movement;
@@ -96,6 +97,11 @@ public class PlayerCharacterMove : MonoBehaviour
     void FixedUpdate()
     {
         temp_Velocity = p_Rigid.velocity;
+        //z_coord = PlayerCharacter.tranform.position;
+
+        //if (z_coord.z > 0) {
+          //transform.Translate(z_coord.x, z_coord.y, 0);
+        //}
 
         if (movementX > 0) {
           p_Velocity.Set(speed, temp_Velocity.y, 0.0f);

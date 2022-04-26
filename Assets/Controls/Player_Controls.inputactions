@@ -34,12 +34,12 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "d2dbf7a8-f100-477a-b425-5515f93d62f3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Absorb",

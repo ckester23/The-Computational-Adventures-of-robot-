@@ -6,23 +6,34 @@ using TMPro;
 
 public class PlayerCharacterMove : MonoBehaviour
 {
+    // Publicly set variables that affect player movement
     public float speed = 1;
     public float jump_power = 1;
     public float stopping_speed = 1;
     public float descent_speed = 1;
+
+    public int jump_cost = 5;
+    /* Todo: implement an abstract object that handles all the cost info for
+        each ability and uses that. Could also hold the enumerated table for
+        use with ability aliasing.*/
+
     //public TextMeshProUGUI countText;
     //public GameObject winTextObject;
 
     // p_ indicates it is something that will be directly applied to the player
 
+    // Internal variables used for movement calculations.
     private Rigidbody p_Rigid;
+    private PlayerCharacterAbilities player_stats;
     private float movementX;
     private float movementY;
     private int count;
     private int health;
     private bool in_air;
+    private bool doublejump_enabled = false;
     private bool jumps_used = false;
 
+    //Stuff for vector calculations
     Vector3 z_coord;
     float velocity_x;
     Vector3 temp_Velocity;
@@ -34,11 +45,10 @@ public class PlayerCharacterMove : MonoBehaviour
     void Start()
     {
         p_Rigid = GetComponent<Rigidbody>();
+        player_stats = GetComponent<PlayerCharacterAbilities>();
         count = 0;
         health = 3;
         in_air = false;
-
-        //Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
 
         //SetCountText();
         //winTextObject.SetActive(false);
@@ -61,7 +71,7 @@ public class PlayerCharacterMove : MonoBehaviour
         }
     }
     */
-    void OnCollisionStay()
+    void OnCollisionEnter()
     {
         in_air = false;
         jumps_used = false;
@@ -78,7 +88,8 @@ public class PlayerCharacterMove : MonoBehaviour
           Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
           p_Rigid.AddForce(jump - p_Rigid.velocity, ForceMode.VelocityChange);
 
-          if (!in_air) {
+          if (!in_air && doublejump_enabled) {
+              player_stats.player_energy -= jump_cost;
               in_air = true;
           }
           else {
@@ -134,6 +145,7 @@ public class PlayerCharacterMove : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             // Add powerUp flag processing here!!!!!
+            doublejump_enabled = true;
         }
     }
 

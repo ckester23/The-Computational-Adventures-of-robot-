@@ -5,7 +5,7 @@ using UnityEngine;
 public class DataHandler : MonoBehaviour
 {
     public float player_max_health;
-    public float player_current_health;
+    public float player_current_health = 1;
     public float player_max_energy;
     public float player_overload_energy;
     public float player_current_energy;

@@ -23,7 +23,7 @@ public class HealthBarManager : MonoBehaviour
     void Update()
     {
         current_energy = datah.player_current_energy;
-        healthText.text = current_energy.ToString("F1") + " ENERGY";
+        healthText.text = current_energy.ToString() + " ENERGY";
 
         current_health = datah.player_current_health;
         if (current_health != 1)

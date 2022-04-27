@@ -79,7 +79,7 @@ public class PlayerCharacterMove : MonoBehaviour
 
     void OnCollisionExit()
     {
-        in_air = true;
+        //in_air = true;
     }
 
     void OnJump()
@@ -88,11 +88,12 @@ public class PlayerCharacterMove : MonoBehaviour
           Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
           p_Rigid.AddForce(jump - p_Rigid.velocity, ForceMode.VelocityChange);
 
-          if (!in_air && doublejump_enabled) {
-              in_air = true;
-          }
-          else if (player_stats.player_energy >= jump_cost && doublejump_enabled){
+          if (in_air && player_stats.player_energy >= jump_cost && doublejump_enabled){
               player_stats.player_energy -= jump_cost;
+              jumps_used = true;
+          }
+          else if (!in_air && doublejump_enabled) {
+              in_air = true;
           }
           else {
               jumps_used = true;

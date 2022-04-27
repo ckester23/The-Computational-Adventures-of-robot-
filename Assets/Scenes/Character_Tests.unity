@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 2035329947}
     - target: {fileID: 5952988114676232708, guid: 1e160bfd4fce31e48b71f61c35dd9e73, type: 3}
       propertyPath: energy_per_sec
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5952988114676232708, guid: 1e160bfd4fce31e48b71f61c35dd9e73, type: 3}
       propertyPath: is_damage_only
@@ -645,6 +645,10 @@ PrefabInstance:
       propertyPath: stopping_speed
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 7945680102068714749, guid: 03c566845156242419581f1eb05f9d85, type: 3}
+      propertyPath: invincibility_period
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8083424718803248468, guid: 03c566845156242419581f1eb05f9d85, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -717,6 +721,10 @@ PrefabInstance:
     - target: {fileID: 1918678807678254535, guid: 2054c89dfc2ae5a4a83db80cfb0be4f5, type: 3}
       propertyPath: m_Name
       value: Virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918678807678254535, guid: 2054c89dfc2ae5a4a83db80cfb0be4f5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2114001772771011058, guid: 2054c89dfc2ae5a4a83db80cfb0be4f5, type: 3}
       propertyPath: energy_per_sec

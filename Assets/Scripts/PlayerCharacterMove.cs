@@ -57,6 +57,7 @@ public class PlayerCharacterMove : MonoBehaviour
     //Case handling movement for player object
     void OnMove(InputValue movementValue)
     {
+        //Determine direction of player movement
         retrieved_vector = movementValue.Get<Vector2>();
         movementX = retrieved_vector.x;
         //movementY = retrieved_vector.y;
@@ -73,28 +74,37 @@ public class PlayerCharacterMove : MonoBehaviour
     */
     void OnCollisionEnter()
     {
+        //Once they touch a serface, set not in air and reset jump tracking
         in_air = false;
         jumps_used = false;
     }
 
     void OnCollisionExit()
     {
+        //Does nothing for now
         //in_air = true;
     }
 
     void OnJump()
     {
+      //If the player is allowed to jump, let them jump
       if (!jumps_used) {
           Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
           p_Rigid.AddForce(jump - p_Rigid.velocity, ForceMode.VelocityChange);
 
+          //If the player is in the air(meaning double jump has been used)
+          //apply energy cost and disable additonal jumping
           if (in_air && player_stats.player_energy >= jump_cost && doublejump_enabled){
               player_stats.player_energy -= jump_cost;
               jumps_used = true;
           }
+          //If the jump passes and double is allowed, set in_air so next jump
+          //will be last
           else if (!in_air && doublejump_enabled) {
               in_air = true;
+              if (player_stats.player_energy < jump_cost) {jumps_used = true;}
           }
+          //If no double_jump, stop jumping after one jump
           else {
               jumps_used = true;
           }
@@ -117,6 +127,7 @@ public class PlayerCharacterMove : MonoBehaviour
           //transform.Translate(z_coord.x, z_coord.y, 0);
         //}
 
+        //Sets velocity for movement instantly, avoiding acceleration
         if (movementX > 0) {
           p_Velocity.Set(speed, temp_Velocity.y, 0.0f);
           p_Rigid.AddForce(p_Velocity - temp_Velocity, ForceMode.VelocityChange);
@@ -125,6 +136,7 @@ public class PlayerCharacterMove : MonoBehaviour
           p_Velocity.Set(-speed, temp_Velocity.y, 0.0f);
           p_Rigid.AddForce(p_Velocity - temp_Velocity, ForceMode.VelocityChange);
         }
+        //Applys movement slowdown after stopping input
         else if (temp_Velocity.x != 0){
           temp_Velocity.x = -temp_Velocity.x * stopping_speed;
           temp_Velocity.y = 0.0f;

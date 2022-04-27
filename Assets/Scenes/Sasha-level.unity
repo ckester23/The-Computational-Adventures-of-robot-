@@ -335,9 +335,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff40cf376f1f42de95f8ce8761c31b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  hitText: {fileID: 0}
-  datah: {fileID: 0}
+  healthText: {fileID: 412333770}
+  hitText: {fileID: 1662808633}
+  datah: {fileID: 1721185153}
 --- !u!114 &12983698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
   player_max_energy: 0
   player_overload_energy: 0
   player_current_energy: 0
-  player_stats: {fileID: 0}
+  player_stats: {fileID: 1448898118}
 --- !u!1 &25406161
 GameObject:
   m_ObjectHideFlags: 0
@@ -4658,7 +4658,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.1358268, y: 1}
+    m_SensorSize: {x: 1.7992126, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

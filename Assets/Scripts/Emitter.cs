@@ -11,7 +11,6 @@ public class Emitter : MonoBehaviour
     public PlayerCharacterAbilities player_stats;
     //public EventHandler eventHandler;
 
-    private float time_start;
     private float current_time;
 
     bool m_IsPlayerInRange;
@@ -38,7 +37,7 @@ public class Emitter : MonoBehaviour
         if (other.transform == player_pos)
         {
             m_IsPlayerInRange = false;
-            time_start = 0;
+            
         }
     }
 

@@ -27,8 +27,7 @@ public class PlayerCharacterMove : MonoBehaviour
     private PlayerCharacterAbilities player_stats;
     private float movementX;
     private float movementY;
-    private int count;
-    private int health;
+    
     private bool in_air;
     private bool doublejump_enabled = false;
     private bool jumps_used = false;
@@ -46,8 +45,7 @@ public class PlayerCharacterMove : MonoBehaviour
     {
         p_Rigid = GetComponent<Rigidbody>();
         player_stats = GetComponent<PlayerCharacterAbilities>();
-        count = 0;
-        health = 3;
+        
         in_air = false;
 
         //SetCountText();

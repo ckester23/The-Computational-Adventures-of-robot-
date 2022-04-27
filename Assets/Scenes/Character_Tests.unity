@@ -460,27 +460,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &973646744 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1918678807678254535, guid: 2054c89dfc2ae5a4a83db80cfb0be4f5, type: 3}
-  m_PrefabInstance: {fileID: 2037030297}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &973646751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 973646744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7794832140868e4eb18e2925ec2d0a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energy_per_sec: 1
-  is_damage_only: 1
-  player_pos: {fileID: 2035329952}
-  player_stats: {fileID: 2035329947}
 --- !u!1001 &980283511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -738,6 +717,14 @@ PrefabInstance:
     - target: {fileID: 1918678807678254535, guid: 2054c89dfc2ae5a4a83db80cfb0be4f5, type: 3}
       propertyPath: m_Name
       value: Virus
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114001772771011058, guid: 2054c89dfc2ae5a4a83db80cfb0be4f5, type: 3}
+      propertyPath: energy_per_sec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2114001772771011058, guid: 2054c89dfc2ae5a4a83db80cfb0be4f5, type: 3}
+      propertyPath: is_damage_only
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2456972852887306290, guid: 2054c89dfc2ae5a4a83db80cfb0be4f5, type: 3}
       propertyPath: player_pos

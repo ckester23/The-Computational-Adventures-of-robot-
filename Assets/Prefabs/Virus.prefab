@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8746175669049039784}
   - component: {fileID: 6138978937178022647}
   - component: {fileID: 2114001772771011058}
+  - component: {fileID: 46095796101998153}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Untagged
@@ -95,7 +96,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918678807678254535}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -144,3 +145,19 @@ MonoBehaviour:
   is_damage_only: 0
   player_pos: {fileID: 0}
   player_stats: {fileID: 0}
+--- !u!114 &46095796101998153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918678807678254535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad01563b8fde891428d0bc12ef690eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  _speed: 2

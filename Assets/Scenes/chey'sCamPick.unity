@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.496413, b: 0.5748175, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -667,7 +667,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7280788, y: 1}
+    m_SensorSize: {x: 1.1779243, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -709,9 +709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a9723deb8a81b4794abd294c21ad74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  jump_power: 3
-  stopping_speed: 1
 --- !u!1 &1403029134
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1350,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 340127671265872077, guid: c1faa6bb01f6ff34e8efece242b91eaa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 355c11d4491bfe3439e9bb19ab7a7979, type: 2}
     - target: {fileID: 340127671265872078, guid: c1faa6bb01f6ff34e8efece242b91eaa, type: 3}
       propertyPath: m_IsTrigger
       value: 1

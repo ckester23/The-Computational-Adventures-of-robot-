@@ -3348,8 +3348,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527415004}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.941891, y: -16.681395, z: -1.6664994}
-  m_LocalScale: {x: 4, y: 1, z: 4}
+  m_LocalPosition: {x: -19.72, y: -16.681395, z: -1.6664994}
+  m_LocalScale: {x: 8, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 698917931}
@@ -9520,7 +9520,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713019507}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< Updated upstream:Assets/Scenes/Sasha-level.unity
   m_LocalPosition: {x: -4.69189, y: -8.731394, z: -1.6664994}
+=======
+  m_LocalPosition: {x: -11.29189, y: -13.1, z: -1.6664994}
+>>>>>>> Stashed changes:Assets/Sasha-level.unity
   m_LocalScale: {x: 4, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []

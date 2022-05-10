@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - powerUp
+  - tutorialTrigger
   layers:
   - Default
   - TransparentFX

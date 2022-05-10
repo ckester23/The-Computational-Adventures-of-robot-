@@ -32,6 +32,13 @@ public class PlayerCharacterMove : MonoBehaviour
     private bool doublejump_enabled = false;
     private bool jumps_used = false;
 
+    bool fix_state = false;
+    bool isTouchObject = false;
+
+    public Material fixedGreen;
+
+    Renderer brokenThing;
+
     //Stuff for vector calculations
     Vector3 z_coord;
     float velocity_x;
@@ -150,6 +157,8 @@ public class PlayerCharacterMove : MonoBehaviour
         }
         */
 
+        doFix();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -159,6 +168,48 @@ public class PlayerCharacterMove : MonoBehaviour
             other.gameObject.SetActive(false);
             // Add powerUp flag processing here!!!!!
             doublejump_enabled = true;
+        }
+        else if (other.gameObject.CompareTag("tool"))
+        {
+            other.gameObject.SetActive(false);
+            player_stats.player_tools += 1;
+            // do more stuff
+        }
+        else if (other.gameObject.CompareTag("objective"))
+        {
+            Debug.Log("it's broken!");
+            brokenThing = other.GetComponent<Renderer>();
+            isTouchObject = true;
+            doFix();
+        }
+    }
+
+    void OnFix(InputValue toggle)
+    {
+        fix_state = toggle.isPressed;
+        doFix();
+    }
+
+    void doFix()
+    {
+        if (fix_state & isTouchObject)
+        {
+            if (player_stats.player_tools >= 1)
+            {
+                Debug.Log("We did it!");
+                player_stats.player_tools -= 1;
+                // do stuff with renderer
+                brokenThing.material = fixedGreen;
+                fix_state = false;
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isTouchObject = false;
         }
     }
 

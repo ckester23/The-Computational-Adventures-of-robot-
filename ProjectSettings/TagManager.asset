@@ -6,6 +6,8 @@ TagManager:
   tags:
   - powerUp
   - tutorialTrigger
+  - tool
+  - objective
   layers:
   - Default
   - TransparentFX

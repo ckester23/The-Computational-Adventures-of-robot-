@@ -453,6 +453,7 @@ MonoBehaviour:
   player_energy: 0
   max_energy: 0
   overload_energy: 0
+  player_tools: 0
 --- !u!114 &1334735872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0fbd4306c199644a833135fa068f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   jump_power: 3
   stopping_speed: 0.1
   descent_speed: 1

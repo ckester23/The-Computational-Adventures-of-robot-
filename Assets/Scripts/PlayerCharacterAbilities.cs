@@ -13,6 +13,8 @@ public class PlayerCharacterAbilities : MonoBehaviour
     [HideInInspector] public float player_energy;
     [HideInInspector] public int max_energy;
     [HideInInspector] public int overload_energy;
+
+    public int player_tools;
     // Start is called before the first frame update
 
     private float time_passed;

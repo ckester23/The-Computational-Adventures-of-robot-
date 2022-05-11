@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7945680102068714749}
   m_Layer: 0
   m_Name: PlayerCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,9 +109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed0fbd4306c199644a833135fa068f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  jump_power: 1
+  speed: 9
+  jump_power: 5
   stopping_speed: 0.1
+  descent_speed: 1
+  jump_cost: 5
+  fixedGreen: {fileID: 0}
 --- !u!114 &7945680102068714749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,10 +129,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_health: 3
   energy_capsule_size: 20
+  invincibility_period: 0.5
   player_currenthealth: 0
   player_energy: 0
   max_energy: 0
   overload_energy: 0
+  player_tools: 0
 --- !u!1 &2131857334547470039
 GameObject:
   m_ObjectHideFlags: 0

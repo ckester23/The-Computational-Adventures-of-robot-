@@ -194,10 +194,10 @@ public class PlayerCharacterMove : MonoBehaviour
     {
         if (fix_state & isTouchObject)
         {
-            if (player_stats.player_tools >= 1)
+            if (player_stats.player_tools >= 3)
             {
                 Debug.Log("We did it!");
-                player_stats.player_tools -= 1;
+                player_stats.player_tools -= 3;
                 // do stuff with renderer
                 brokenThing.material = fixedGreen;
                 fix_state = false;

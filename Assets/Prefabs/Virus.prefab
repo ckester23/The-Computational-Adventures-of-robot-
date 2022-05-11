@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy_per_sec: 0
-  is_damage_only: 0
+  is_damage_only: 1
   player_pos: {fileID: 0}
   player_stats: {fileID: 0}
 --- !u!114 &46095796101998153

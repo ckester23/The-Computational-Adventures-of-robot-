@@ -71,6 +71,6 @@ public class PlayerCharacterAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (player_energy < 0) {player_energy = 0;}
     }
 }

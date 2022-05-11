@@ -8,6 +8,8 @@ TagManager:
   - tutorialTrigger
   - tool
   - objective
+  - Double_Jump
+  - Wall_Grab
   layers:
   - Default
   - TransparentFX

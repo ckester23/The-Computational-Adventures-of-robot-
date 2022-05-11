@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8083424718803248468}
   - component: {fileID: 2252268902919719548}
   - component: {fileID: 3211446992094607147}
+  - component: {fileID: 4269384144749104055}
   - component: {fileID: 2381558226203642748}
   - component: {fileID: 6487545152251638789}
   - component: {fileID: 7945680102068714749}
@@ -67,6 +68,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &4269384144749104055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964359251735367026}
+  m_Material: {fileID: 13400000, guid: aa7c12998922af04eae5147ca7695919, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.05, y: 1.5, z: 1.05}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2381558226203642748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,8 +91,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Actions: {fileID: -944628639613478452, guid: e592788c9b683bb48aeac8e0827922e2, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -93,7 +107,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -107,13 +121,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed0fbd4306c199644a833135fa068f34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 9
-  jump_power: 5
+  m_Name:
+  m_EditorClassIdentifier:
+  speed: 1
   stopping_speed: 0.1
-  descent_speed: 1
+  jump_power: 1
   jump_cost: 5
+  descent_speed: 1
+  linear_decent: 0
   fixedGreen: {fileID: 0}
 --- !u!114 &7945680102068714749
 MonoBehaviour:
@@ -125,11 +140,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a956c962739e4b144b8f148f5ba47661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   player_health: 3
   energy_capsule_size: 20
-  invincibility_period: 0.5
+  invincibility_period: 1
   player_currenthealth: 0
   player_energy: 0
   max_energy: 0

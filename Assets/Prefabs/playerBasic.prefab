@@ -472,7 +472,7 @@ MonoBehaviour:
   jump_power: 3
   jump_cost: 5
   grab_cost: 2
-  descent_speed: 1
+  descent_speed: 0
   linear_decent: 0
   fixedGreen: {fileID: 2100000, guid: 322b75a60ca45be46a6001d9e4d60a2c, type: 2}
 --- !u!114 &5943216765493885961

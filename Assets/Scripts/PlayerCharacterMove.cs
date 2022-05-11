@@ -227,17 +227,20 @@ public class PlayerCharacterMove : MonoBehaviour
             p_Velocity.Set(movementX > 0 ? speed : -speed, temp_Velocity.y, 0.0f);
             p_Rigid.AddForce(p_Velocity - temp_Velocity, ForceMode.VelocityChange);
         }
-        //Applys movement slowdown after stopping input
+        //WIP replaces gravity
         if (linear_decent && !on_ground) {
             p_Velocity.Set(temp_Velocity.x, -descent_speed, 0.0f);
             p_Rigid.AddForce(p_Velocity - temp_Velocity, ForceMode.VelocityChange);
         }
+        //Applys movement slowdown after stopping input
         else if (temp_Velocity.x != 0){
             temp_Velocity.x = -temp_Velocity.x * stopping_speed;
             temp_Velocity.y = 0.0f;
             temp_Velocity.z = 0.0f;
             p_Rigid.AddForce(temp_Velocity, ForceMode.VelocityChange);
         }
+
+        p_Rigid.AddForce(Vector3.down * (descent_speed/10f), ForceMode.VelocityChange);
 
         doFix();
         GrabState(grabbing);
@@ -280,10 +283,10 @@ public class PlayerCharacterMove : MonoBehaviour
     {
         if (fix_state & isTouchObject)
         {
-            if (player_stats.player_tools >= 3)
+            if (player_stats.player_tools >= 1)
             {
                 Debug.Log("We did it!");
-                player_stats.player_tools -= 3;
+                player_stats.player_tools -= 1;
                 // do stuff with renderer
                 brokenThing.material = fixedGreen;
                 fix_state = false;

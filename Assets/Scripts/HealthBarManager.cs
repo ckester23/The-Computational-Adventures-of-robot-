@@ -19,7 +19,7 @@ public class HealthBarManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
+
     }
 
     // Update is called once per frame
@@ -27,6 +27,15 @@ public class HealthBarManager : MonoBehaviour
     {
         current_energy = datah.player_current_energy;
         healthText.text = current_energy.ToString("F1") + " ENERGY";
+        if (current_energy >= datah.player_max_energy)
+        {
+            healthText.text = current_energy.ToString("F1") + " ENERGY(OverLoading!)";
+            healthText.color = Color.red;
+        } else
+        {
+            healthText.text = current_energy.ToString("F1") + " ENERGY";
+            healthText.color = Color.white;
+        }
 
         current_tools = datah.player_current_tools;
         toolText.text = current_tools.ToString() + " TOOLS";

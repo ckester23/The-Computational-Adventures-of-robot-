@@ -136,7 +136,7 @@ public class PlayerCharacterMove : MonoBehaviour
     */
     bool IsGrounded()
     {
-        return Physics.Raycast(transform.position, -Vector3.up, p_groundDisplacement + 0.1f);
+        return Physics.Raycast(transform.position, Vector3.down, p_groundDisplacement + 0.1f);
     }
 
     bool TouchingWall()
@@ -284,10 +284,10 @@ public class PlayerCharacterMove : MonoBehaviour
     {
         if (fix_state & isTouchObject)
         {
-            if (player_stats.player_tools >= 1)
+            if (player_stats.player_tools >= 3)
             {
                 Debug.Log("We did it!");
-                player_stats.player_tools -= 1;
+                player_stats.player_tools -= 3;
                 // do stuff with renderer
                 brokenThing.material = fixedGreen;
                 fix_state = false;
@@ -297,7 +297,6 @@ public class PlayerCharacterMove : MonoBehaviour
                 {
                     currentWall.SetActive(false);
                 }
-
             }
         }
     }

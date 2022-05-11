@@ -760,7 +760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6487545152251638789, guid: 03c566845156242419581f1eb05f9d85, type: 3}
       propertyPath: descent_speed
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6487545152251638789, guid: 03c566845156242419581f1eb05f9d85, type: 3}
       propertyPath: linear_decent

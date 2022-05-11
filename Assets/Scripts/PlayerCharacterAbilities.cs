@@ -24,7 +24,7 @@ public class PlayerCharacterAbilities : MonoBehaviour
     {
         player_currenthealth = player_health;
         player_energy = 0;
-        time_passed = invincibility_period;
+        time_passed = 0;
         max_energy = energy_capsule_size;
         overload_energy = energy_capsule_size + (energy_capsule_size / 5);
     }

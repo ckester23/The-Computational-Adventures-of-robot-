@@ -32,6 +32,7 @@ public class PlayerCharacterMove : MonoBehaviour
     private CapsuleCollider p_Colider;
     private BoxCollider p_slipColider;
     private PlayerCharacterAbilities player_stats;
+    private GameObject currentWall;
     private float p_groundDisplacement;
     private float p_wallDisplacement;
     private float movementX;
@@ -290,6 +291,13 @@ public class PlayerCharacterMove : MonoBehaviour
                 // do stuff with renderer
                 brokenThing.material = fixedGreen;
                 fix_state = false;
+                currentWall = brokenThing.transform.GetChild(0).gameObject;
+
+                if (currentWall != null)
+                {
+                    currentWall.SetActive(false);
+                }
+
             }
         }
     }

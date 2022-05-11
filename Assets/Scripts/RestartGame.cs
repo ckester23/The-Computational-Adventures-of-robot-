@@ -24,7 +24,7 @@ public class RestartGame : MonoBehaviour
             current_health = datah.player_current_health;
             if (current_health <= 0){
                 Debug.Log("Made it");
-                SceneManager.LoadScene("Horizontal-level");
+                SceneManager.LoadScene("Alpha Level");
             }
         }
         else {

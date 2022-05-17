@@ -170,7 +170,7 @@ public class PlayerCharacterMove : MonoBehaviour
 
     void OnCollisionEnter()
     {
-        //Once they touch a serface, set not in air and reset jump tracking
+        //Once they touch a surface, set not in air and reset jump tracking
         if (IsGrounded() || (TouchingWall() && grabbing)) {
             on_ground = true;
             in_air = false;
@@ -267,7 +267,6 @@ public class PlayerCharacterMove : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("objective"))
         {
-            Debug.Log("it's broken!");
             brokenThing = other.GetComponent<Renderer>();
             isTouchObject = true;
             doFix();

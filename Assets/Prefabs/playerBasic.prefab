@@ -444,10 +444,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   stopping_speed: 0.1
-  jump_power: 6
-  jump_cost: 5
-  grab_cost: 2
-  descent_speed: 0
+  jump_power: 10
+  jump_cost: 3
+  grab_cost: 1
+  descent_speed: 3
   linear_decent: 0
   fixedGreen: {fileID: 2100000, guid: 322b75a60ca45be46a6001d9e4d60a2c, type: 2}
 --- !u!114 &5943216765493885961
@@ -508,7 +508,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &4668178051325520635
 BoxCollider:

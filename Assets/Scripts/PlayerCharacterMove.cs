@@ -18,6 +18,9 @@ public class PlayerCharacterMove : MonoBehaviour
     public float descent_speed = 1;
     public bool linear_decent = false;
 
+    public float knockback_x_bias = 1;
+    public float knockback_y_bias = 1;
+
     /* Todo: implement an abstract object that handles all the cost info for
         each ability and uses that. Could also hold the enumerated table for
         use with ability aliasing.*/
@@ -145,6 +148,13 @@ public class PlayerCharacterMove : MonoBehaviour
                Physics.Raycast(transform.position, Vector3.left, p_wallDisplacement + 0.1f);
     }
 
+    public void KnockBack(Vector3 source_displacement)
+    {
+        source_displacement.x *= knockback_x_bias;
+        source_displacement.y *= knockback_y_bias;
+        p_Rigid.AddForce(source_displacement, ForceMode.Impulse);
+    }
+
     /*
     bool IsBlocked(int direction, float displacement)
     {
@@ -259,6 +269,14 @@ public class PlayerCharacterMove : MonoBehaviour
             other.gameObject.SetActive(false);
             wallgrab_enabled = true;
         }
+        else if (other.gameObject.CompareTag("Block")) {
+            other.gameObject.SetActive(false);
+            player_stats.block_enabled = true;
+        }
+        else if (other.gameObject.CompareTag("Attack_Power")) {
+            other.gameObject.SetActive(false);
+            player_stats.attack_enabled = true;
+        }
         else if (other.gameObject.CompareTag("tool"))
         {
             other.gameObject.SetActive(false);
@@ -307,16 +325,5 @@ public class PlayerCharacterMove : MonoBehaviour
             isTouchObject = false;
         }
     }
-
-    /*
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Pickup")) {
-            other.gameObject.SetActive(false);
-            // Add powerUp flag processing here!!!!!
-            wallgrab_enabled = true;
-        }
-    }
-    */
 
 }

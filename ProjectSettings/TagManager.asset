@@ -10,6 +10,8 @@ TagManager:
   - objective
   - Double_Jump
   - Wall_Grab
+  - Block
+  - Attack_Power
   layers:
   - Default
   - TransparentFX

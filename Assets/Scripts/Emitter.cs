@@ -37,7 +37,7 @@ public class Emitter : MonoBehaviour
         if (other.transform == player_pos)
         {
             m_IsPlayerInRange = false;
-            
+
         }
     }
 
@@ -54,11 +54,11 @@ public class Emitter : MonoBehaviour
                 if (raycastHit.collider.transform == player_pos)
                 {
                     if (is_damage_only) {
-                        player_stats.ApplyDamage();
+                        player_stats.ApplyDamage(player_pos.position - transform.position);
                     }
                     else {
                         current_time = Time.deltaTime;
-                        player_stats.ApplyEnergy(current_time * energy_per_sec);
+                        player_stats.ApplyEnergy(current_time * energy_per_sec, player_pos.position - transform.position);
                     }
                 }
             }

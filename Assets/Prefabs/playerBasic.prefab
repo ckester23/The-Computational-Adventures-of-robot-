@@ -454,8 +454,8 @@ MonoBehaviour:
   grab_cost: 1
   descent_speed: 3
   linear_decent: 0
-  knockback_x_bias: 1
-  knockback_y_bias: 1
+  knockback_x_bias: 13
+  knockback_y_bias: 8
   fixedGreen: {fileID: 2100000, guid: 322b75a60ca45be46a6001d9e4d60a2c, type: 2}
 --- !u!114 &5943216765493885961
 MonoBehaviour:
@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 7691692323651221285}
   - component: {fileID: 6348829104536099248}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Hurt-Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

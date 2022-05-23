@@ -5,14 +5,14 @@ using UnityEngine;
 public class tutorialStart : MonoBehaviour
 {
     public GameObject blankTV;
-    public GameObject textTV;
+    public GameObject displayText;
 
     public Collider player;
 
     // Start is called before the first frame update
     void Start()
     {
-        textTV.SetActive(false);
+        displayText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class tutorialStart : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             blankTV.SetActive(false);
-            textTV.SetActive(true);
+            displayText.SetActive(true);
         }
     }
 }

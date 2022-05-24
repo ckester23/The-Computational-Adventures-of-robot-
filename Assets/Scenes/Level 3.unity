@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.496413, b: 0.5748175, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6236,6 +6236,14 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1334735873, guid: 3dfbda3057928704b8b78c76a2a09429, type: 3}
+      propertyPath: block_enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334735873, guid: 3dfbda3057928704b8b78c76a2a09429, type: 3}
+      propertyPath: attack_enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1334735873, guid: 3dfbda3057928704b8b78c76a2a09429, type: 3}
       propertyPath: block_hit_energy
       value: 3
       objectReference: {fileID: 0}
@@ -10414,6 +10422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc0186106264749c7a6ee1dc0ff85e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  datah: {fileID: 0}
 --- !u!4 &414413095
 Transform:
   m_ObjectHideFlags: 0

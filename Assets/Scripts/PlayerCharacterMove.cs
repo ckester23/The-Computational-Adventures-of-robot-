@@ -21,6 +21,8 @@ public class PlayerCharacterMove : MonoBehaviour
     public float knockback_x_bias = 1;
     public float knockback_y_bias = 1;
 
+    public AudioSource jumpAudio;
+
     /* Todo: implement an abstract object that handles all the cost info for
         each ability and uses that. Could also hold the enumerated table for
         use with ability aliasing.*/
@@ -210,6 +212,9 @@ public class PlayerCharacterMove : MonoBehaviour
     {
       //If the player is allowed to jump, let them jump
       if (!jumps_used) {
+          //play sound
+          jumpAudio.Play();
+
           Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
           p_Rigid.AddForce(jump - p_Rigid.velocity, ForceMode.VelocityChange);
 

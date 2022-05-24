@@ -12,6 +12,7 @@ TagManager:
   - Wall_Grab
   - Block
   - Attack_Power
+  - Hurt-Box
   layers:
   - Default
   - TransparentFX

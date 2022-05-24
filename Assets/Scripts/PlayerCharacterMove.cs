@@ -50,12 +50,14 @@ public class PlayerCharacterMove : MonoBehaviour
     private bool on_ground = true;
     private bool grabbing = false;
 
-    /*
-    int DOWN = 0;
-    int UP = 1;
+    //Direction Constants
+    //int DOWN = 0;
+    //int UP = 1;
     int RIGHT = 2;
     int LEFT = 3;
-    */
+
+    int current_direction = 2;
+    private int old_direction = 2;
 
     bool fix_state = false;
     bool isTouchObject = false;
@@ -91,22 +93,30 @@ public class PlayerCharacterMove : MonoBehaviour
     //Case handling movement for player object
     void OnMove(InputValue movementValue)
     {
+        old_direction = current_direction;
         //Determine direction of player movement
         retrieved_vector = movementValue.Get<Vector2>();
         movementX = retrieved_vector.x;
-        /*
+
         if (movementX > 0) {
-            directions = RIGHT;
+            current_direction = RIGHT;
+            if (old_direction != current_direction){DoFlip();}
         }
         else if (movementX < 0) {
-            directions = LEFT;
+            current_direction = LEFT;
+            if (old_direction != current_direction){DoFlip();}
         }
-
+        /*
         if (IsBlocked(directions, p_wallDisplacement)) {
             movementX = 0;
         }
         */
         //movementY = retrieved_vector.y;
+    }
+
+    void DoFlip()
+    {
+        transform.Rotate(0.0f, 180.0f, 0.0f, Space.Self);
     }
 
     void OnWallGrab(InputValue toggle)

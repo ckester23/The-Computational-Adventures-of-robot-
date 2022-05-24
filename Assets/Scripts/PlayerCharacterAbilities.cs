@@ -11,6 +11,8 @@ public class PlayerCharacterAbilities : MonoBehaviour
     public float invincibility_period = 1;
     public float block_cost = 1;
     public float block_hit_energy = 1;
+    public float attack_cost = 1;
+    public float attack_linger = 0.1f;
     [HideInInspector] public int player_currenthealth;
     [HideInInspector] public float player_energy;
     [HideInInspector] public int max_energy;
@@ -20,8 +22,10 @@ public class PlayerCharacterAbilities : MonoBehaviour
     // Start is called before the first frame update
 
     private PlayerCharacterMove player_move;
+    private BoxCollider hurt_box;
 
     private float time_passed;
+    private float attack_time_passed;
     private bool absorb_state = false;
     private bool blocking = false;
 
@@ -36,6 +40,7 @@ public class PlayerCharacterAbilities : MonoBehaviour
         max_energy = energy_capsule_size;
         overload_energy = energy_capsule_size + (energy_capsule_size / 5);
         player_move = GetComponent<PlayerCharacterMove>();
+        hurt_box = transform.GetChild(1).GetComponent<BoxCollider>();
     }
 
     void OnAbsorb(InputValue toggle) {
@@ -44,6 +49,20 @@ public class PlayerCharacterAbilities : MonoBehaviour
 
     void OnBlock(InputValue toggle) {
         blocking = toggle.isPressed;
+    }
+
+    void OnAttack() {
+        DoAttack();
+    }
+
+    void DoAttack() {
+        if (attack_enabled && player_energy >= attack_cost) {
+              player_energy -= attack_cost;
+              //Call any attack animations here.
+
+              hurt_box.enabled = true;
+              attack_time_passed = attack_linger;
+        }
     }
 
     public void ApplyEnergy(float energy, Vector3 source_displacement)
@@ -86,14 +105,24 @@ public class PlayerCharacterAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Maintain some circumstance or state
         if (player_energy < 0) {player_energy = 0;}
     }
 
     void FixedUpdate()
     {
+        //Decrement time counters
         time_passed -= Time.deltaTime;
+        attack_time_passed -= Time.deltaTime;
+
+        //Apply passive effects
         if (blocking && block_enabled) {
             player_energy -= block_cost * Time.deltaTime;
+        }
+
+        //End finished effects
+        if (attack_time_passed <= 0) {
+            hurt_box.enabled = false;
         }
     }
 }

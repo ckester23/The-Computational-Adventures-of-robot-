@@ -428,6 +428,8 @@ MonoBehaviour:
   invincibility_period: 1
   block_cost: 1
   block_hit_energy: 1
+  attack_cost: 1
+  attack_linger: 0.1
   player_currenthealth: 0
   player_energy: 0
   max_energy: 0
@@ -528,7 +530,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 3, z: 1.1}
+  m_Size: {x: 1.1, y: 3.4, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5315745914252444001
 GameObject:
@@ -959,7 +961,7 @@ GameObject:
   - component: {fileID: 6348829104536099248}
   m_Layer: 0
   m_Name: Hurt-Box
-  m_TagString: Untagged
+  m_TagString: Hurt-Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

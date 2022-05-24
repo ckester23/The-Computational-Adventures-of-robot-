@@ -44,8 +44,8 @@ public class PlayerCharacterMove : MonoBehaviour
     //private int directions = 0;
 
     private bool in_air;
-    private bool doublejump_enabled = false;
-    private bool wallgrab_enabled = false;
+    public bool doublejump_enabled = false;
+    public bool wallgrab_enabled = false;
     private bool jumps_used = false;
     private bool on_ground = true;
     private bool grabbing = false;

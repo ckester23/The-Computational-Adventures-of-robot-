@@ -29,8 +29,8 @@ public class PlayerCharacterAbilities : MonoBehaviour
     private bool absorb_state = false;
     private bool blocking = false;
 
-    [HideInInspector] public bool block_enabled = false;
-    [HideInInspector] public bool attack_enabled = false;
+    public bool block_enabled = false;
+    public bool attack_enabled = false;
 
     void Start()
     {

@@ -55,7 +55,7 @@ public class Emitter : MonoBehaviour
                 if (raycastHit.collider.transform == player_pos)
                 {
                     if (is_instant_kill) {
-                        player_stats.ApplyDeath();
+                        player_stats.ApplyDeath(player_pos.position - transform.position);
                     }
                     else if (is_damage_only) {
                         player_stats.ApplyDamage(player_pos.position - transform.position);

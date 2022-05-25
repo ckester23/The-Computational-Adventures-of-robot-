@@ -97,8 +97,8 @@ public class PlayerCharacterAbilities : MonoBehaviour
             player_move.KnockBack(source_displacement);
         }
         else if (time_passed <= 0) {
-            if (player_currenthealth > 1) {player_currenthealth -= 1;}
-            else {ApplyDeath();}
+            /*if (player_currenthealth > 1) {*/player_currenthealth -= 1;/*}*/
+            //else {ApplyDeath();}
 
             time_passed = invincibility_period;
             player_move.KnockBack(source_displacement);
@@ -110,9 +110,16 @@ public class PlayerCharacterAbilities : MonoBehaviour
         }
     }
 
-    public void ApplyDeath()
+    public void ApplyDeath(Vector3 source_displacement)
     {
+      if (block_enabled && blocking && player_energy > 0 && time_passed <= 0){
+          player_energy -= block_hit_energy;
+          time_passed = invincibility_period;
+          player_move.KnockBack(source_displacement);
+      }
+      else {
           player_currenthealth = 0;
+      }
     }
 
     // Update is called once per frame

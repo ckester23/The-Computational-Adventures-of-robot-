@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PoC Level.unity
     guid: 70cad2a33157d442fb5d2f74e7d1e964
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 47c801c0f46c87744952092cae4adff4
+  - enabled: 1
     path: Assets/Scenes/Alpha Level.unity
     guid: e9358282ebe0c4cbfb8e701e1f97fe41
   - enabled: 0
@@ -20,7 +23,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Final Level.unity
     guid: 587999968260c01429ef2b4162997c4d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/End of Game.unity
     guid: 7c9dc712cf413a8498e0b72c2f9baa7c
   - enabled: 1

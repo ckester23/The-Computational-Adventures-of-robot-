@@ -54,12 +54,6 @@ public class PlayerCharacterAbilities : MonoBehaviour
 
     void OnBlock(InputValue toggle) {
         blocking = toggle.isPressed;
-        if (blocking && player_energy > 0 && block_enabled) {
-            block_field.SetActive(true);
-        }
-        else {
-            block_field.SetActive(false);
-        }
     }
 
     void OnAttack() {
@@ -100,6 +94,7 @@ public class PlayerCharacterAbilities : MonoBehaviour
         if (block_enabled && blocking && player_energy > 0 && time_passed <= 0){
             player_energy -= block_hit_energy;
             time_passed = invincibility_period;
+            player_move.KnockBack(source_displacement);
         }
         else if (time_passed <= 0) {
             if (player_currenthealth > 1) {player_currenthealth -= 1;}
@@ -136,6 +131,13 @@ public class PlayerCharacterAbilities : MonoBehaviour
         //Apply passive effects
         if (blocking && block_enabled) {
             player_energy -= block_cost * Time.deltaTime;
+        }
+
+        if (blocking && player_energy > 0 && block_enabled) {
+            block_field.SetActive(true);
+        }
+        else {
+            block_field.SetActive(false);
         }
 
         //End finished effects

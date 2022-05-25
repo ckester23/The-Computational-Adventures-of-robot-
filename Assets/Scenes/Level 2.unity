@@ -3813,7 +3813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1334735873, guid: 3dfbda3057928704b8b78c76a2a09429, type: 3}
       propertyPath: block_enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1334735873, guid: 3dfbda3057928704b8b78c76a2a09429, type: 3}
       propertyPath: attack_enabled

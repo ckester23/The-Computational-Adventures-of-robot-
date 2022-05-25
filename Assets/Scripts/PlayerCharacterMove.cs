@@ -43,6 +43,7 @@ public class PlayerCharacterMove : MonoBehaviour
     private float movementX;
     private float movementY;
     private Vector3 direction_vector = new Vector3(0,0,0);
+    //private Vector3 respawnPoint;
     //private int directions = 0;
 
     private bool in_air;
@@ -85,6 +86,8 @@ public class PlayerCharacterMove : MonoBehaviour
         player_stats = GetComponent<PlayerCharacterAbilities>();
         p_groundDisplacement = p_Colider.bounds.extents.y;
         p_wallDisplacement = p_slipColider.bounds.extents.x;
+
+        player_stats.respawnPoint = p_Rigid.transform.position;
 
         in_air = false;
 
@@ -304,6 +307,12 @@ public class PlayerCharacterMove : MonoBehaviour
             isTouchObject = true;
             doFix();
         }
+        else if (other.gameObject.CompareTag("checkPoint"))
+        {
+            Debug.Log("hit checkpoint");
+            player_stats.respawnPoint = other.transform.position;
+            other.gameObject.SetActive(false);
+        }
     }
 
     void OnFix(InputValue toggle)
@@ -318,7 +327,6 @@ public class PlayerCharacterMove : MonoBehaviour
         {
             if (player_stats.player_tools >= 3)
             {
-                Debug.Log("We did it!");
                 player_stats.player_tools -= 3;
                 // do stuff with renderer
                 brokenThing.material = fixedGreen;

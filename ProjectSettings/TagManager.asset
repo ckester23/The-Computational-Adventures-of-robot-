@@ -13,6 +13,7 @@ TagManager:
   - Block
   - Attack_Power
   - Hurt-Box
+  - checkPoint
   layers:
   - Default
   - TransparentFX

@@ -18,6 +18,8 @@ public class PlayerCharacterAbilities : MonoBehaviour
     [HideInInspector] public int max_energy;
     [HideInInspector] public int overload_energy;
 
+    [HideInInspector] public Vector3 respawnPoint;
+
     public int player_tools;
     // Start is called before the first frame update
 
@@ -41,6 +43,7 @@ public class PlayerCharacterAbilities : MonoBehaviour
         overload_energy = energy_capsule_size + (energy_capsule_size / 5);
         player_move = GetComponent<PlayerCharacterMove>();
         hurt_box = transform.GetChild(1).GetComponent<BoxCollider>();
+        
     }
 
     void OnAbsorb(InputValue toggle) {

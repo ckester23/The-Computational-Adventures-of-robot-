@@ -12,6 +12,8 @@ public class DataHandler : MonoBehaviour
 
     public int player_current_tools;
 
+    public Vector3 respawnPoint;
+
     public PlayerCharacterAbilities player_stats;
 
     // Start is called before the first frame update
@@ -24,6 +26,8 @@ public class DataHandler : MonoBehaviour
         player_current_energy = player_stats.player_energy;
 
         player_current_tools = player_stats.player_tools;
+
+        respawnPoint = player_stats.respawnPoint;
     }
 
     // Update is called once per frame
@@ -36,5 +40,7 @@ public class DataHandler : MonoBehaviour
         player_current_energy = player_stats.player_energy;
 
         player_current_tools = player_stats.player_tools;
+
+        respawnPoint = player_stats.respawnPoint;
     }
 }

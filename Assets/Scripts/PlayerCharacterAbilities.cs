@@ -24,7 +24,8 @@ public class PlayerCharacterAbilities : MonoBehaviour
     // Start is called before the first frame update
 
     private PlayerCharacterMove player_move;
-    private BoxCollider hurt_box;
+    private GameObject hurt_box;
+    private GameObject block_field;
 
     private float time_passed;
     private float attack_time_passed;
@@ -42,8 +43,9 @@ public class PlayerCharacterAbilities : MonoBehaviour
         max_energy = energy_capsule_size;
         overload_energy = energy_capsule_size + (energy_capsule_size / 5);
         player_move = GetComponent<PlayerCharacterMove>();
-        hurt_box = transform.GetChild(1).GetComponent<BoxCollider>();
-        
+        hurt_box = transform.GetChild(1).gameObject;
+        block_field = transform.GetChild(2).gameObject;
+
     }
 
     void OnAbsorb(InputValue toggle) {
@@ -52,6 +54,12 @@ public class PlayerCharacterAbilities : MonoBehaviour
 
     void OnBlock(InputValue toggle) {
         blocking = toggle.isPressed;
+        if (blocking && player_energy > 0 && block_enabled) {
+            block_field.SetActive(true);
+        }
+        else {
+            block_field.SetActive(false);
+        }
     }
 
     void OnAttack() {
@@ -63,7 +71,7 @@ public class PlayerCharacterAbilities : MonoBehaviour
               player_energy -= attack_cost;
               //Call any attack animations here.
 
-              hurt_box.enabled = true;
+              hurt_box.SetActive(true);
               attack_time_passed = attack_linger;
         }
     }
@@ -94,7 +102,9 @@ public class PlayerCharacterAbilities : MonoBehaviour
             time_passed = invincibility_period;
         }
         else if (time_passed <= 0) {
-            player_currenthealth -= 1;
+            if (player_currenthealth > 1) {player_currenthealth -= 1;}
+            else {ApplyDeath();}
+
             time_passed = invincibility_period;
             player_move.KnockBack(source_displacement);
             Debug.Log(player_currenthealth);
@@ -103,6 +113,11 @@ public class PlayerCharacterAbilities : MonoBehaviour
                 Debug.Log(player_currenthealth);
             }
         }
+    }
+
+    public void ApplyDeath()
+    {
+          player_currenthealth = 0;
     }
 
     // Update is called once per frame
@@ -125,7 +140,7 @@ public class PlayerCharacterAbilities : MonoBehaviour
 
         //End finished effects
         if (attack_time_passed <= 0) {
-            hurt_box.enabled = false;
+            hurt_box.SetActive(false);
         }
     }
 }

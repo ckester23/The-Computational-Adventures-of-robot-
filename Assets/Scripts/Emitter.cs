@@ -6,6 +6,7 @@ public class Emitter : MonoBehaviour
 {
     public int energy_per_sec = 0;
     public bool is_damage_only = false;
+    public bool is_instant_kill = false;
 
     public Transform player_pos;
     public PlayerCharacterAbilities player_stats;
@@ -53,7 +54,10 @@ public class Emitter : MonoBehaviour
             {
                 if (raycastHit.collider.transform == player_pos)
                 {
-                    if (is_damage_only) {
+                    if (is_instant_kill) {
+                        player_stats.ApplyDeath();
+                    }
+                    else if (is_damage_only) {
                         player_stats.ApplyDamage(player_pos.position - transform.position);
                     }
                     else {

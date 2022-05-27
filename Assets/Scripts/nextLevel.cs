@@ -47,5 +47,9 @@ public class nextLevel : MonoBehaviour
         {
             nextScene = "End of Game";
         }
+        else if (current.name == "End of Game")
+        {
+            nextScene = "MainMenu";
+        }
     }
 }

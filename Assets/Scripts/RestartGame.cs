@@ -38,7 +38,7 @@ public class RestartGame : MonoBehaviour
                     Debug.Log(datah.player_current_health);
                     player_stats.player_currenthealth = 3;
                     player_stats.player_energy = 0.0f;
-                    player_stats.player_tools = 0;
+                    //player_stats.player_tools = 0; //keep tools
                     player.transform.position = datah.respawnPoint;
                 }
                 else

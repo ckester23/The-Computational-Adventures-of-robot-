@@ -37,13 +37,13 @@ public class nextLevel : MonoBehaviour
     {
         if (current.name == "Alpha Level")
         {
-            nextScene = "Beta Level";
+            nextScene = "Level 2";
         }
-        else if (current.name == "Beta Level")
+        else if (current.name == "Level 2")
         {
-            nextScene = "Final Level";
+            nextScene = "Level 3";
         }
-        else if (current.name == "Final Level")
+        else if (current.name == "Level 3")
         {
             nextScene = "End of Game";
         }

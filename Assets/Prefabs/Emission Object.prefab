@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7794832140868e4eb18e2925ec2d0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energy_per_sec: 1
+  energy_per_sec: 3
   is_damage_only: 0
   is_instant_kill: 0
   player_pos: {fileID: 0}

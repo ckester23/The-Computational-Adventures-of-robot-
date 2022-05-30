@@ -24,7 +24,9 @@ public class PlayerCharacterMove : MonoBehaviour
     public AudioSource jumpAudio;
     public AudioSource coinAudio;
     public AudioSource fixAudio;
+    public AudioSource pickAudio;
     public AudioSource toolAudio;
+
 
     /* Todo: implement an abstract object that handles all the cost info for
         each ability and uses that. Could also hold the enumerated table for
@@ -284,18 +286,22 @@ public class PlayerCharacterMove : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Double_Jump"))
         {
+            pickAudio.Play();
             other.gameObject.SetActive(false);
             doublejump_enabled = true;
         }
         else if (other.gameObject.CompareTag("Wall_Grab")) {
+            pickAudio.Play();
             other.gameObject.SetActive(false);
             wallgrab_enabled = true;
         }
         else if (other.gameObject.CompareTag("Block")) {
+            pickAudio.Play();
             other.gameObject.SetActive(false);
             player_stats.block_enabled = true;
         }
         else if (other.gameObject.CompareTag("Attack_Power")) {
+            pickAudio.Play();
             other.gameObject.SetActive(false);
             player_stats.attack_enabled = true;
         }

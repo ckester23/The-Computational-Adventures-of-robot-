@@ -8,6 +8,7 @@ public class PlayerCharacterAbilities : MonoBehaviour
 
     public int player_health = 3;
     public int energy_capsule_size = 20;
+    public int player_coins = 0;
     public float invincibility_period = 1;
     public float block_cost = 1;
     public float block_hit_energy = 1;

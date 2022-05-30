@@ -22,6 +22,7 @@ public class PlayerCharacterMove : MonoBehaviour
     public float knockback_y_bias = 1;
 
     public AudioSource jumpAudio;
+    public AudioSource coinAudio;
 
     /* Todo: implement an abstract object that handles all the cost info for
         each ability and uses that. Could also hold the enumerated table for
@@ -312,6 +313,13 @@ public class PlayerCharacterMove : MonoBehaviour
             Debug.Log("hit checkpoint");
             player_stats.respawnPoint = other.transform.position;
             other.gameObject.SetActive(false);
+        }
+        else if (other.gameObject.CompareTag("coin"))
+        {
+            player_stats.player_coins += 1;
+            coinAudio.Play();
+            other.gameObject.SetActive(false);
+            
         }
     }
 

@@ -10,6 +10,8 @@ public class DataHandler : MonoBehaviour
     public float player_overload_energy;
     public float player_current_energy;
 
+    public int player_coins;
+
     public int player_current_tools;
 
     public Vector3 respawnPoint;
@@ -27,6 +29,8 @@ public class DataHandler : MonoBehaviour
 
         player_current_tools = player_stats.player_tools;
 
+        player_coins = player_stats.player_coins;
+
         respawnPoint = player_stats.respawnPoint;
     }
 
@@ -40,6 +44,8 @@ public class DataHandler : MonoBehaviour
         player_current_energy = player_stats.player_energy;
 
         player_current_tools = player_stats.player_tools;
+
+        player_coins = player_stats.player_coins;
 
         respawnPoint = player_stats.respawnPoint;
     }

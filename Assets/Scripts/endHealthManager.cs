@@ -52,6 +52,6 @@ public class endHealthManager : MonoBehaviour
         }
 
         current_coins = datah.player_coins;
-        coinText.text = current_coins.ToString() + " COINS";
+        coinText.text = current_coins.ToString() + " /24 COINS";
     }
 }

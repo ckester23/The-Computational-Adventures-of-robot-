@@ -23,6 +23,8 @@ public class PlayerCharacterMove : MonoBehaviour
 
     public AudioSource jumpAudio;
     public AudioSource coinAudio;
+    public AudioSource fixAudio;
+    public AudioSource toolAudio;
 
     /* Todo: implement an abstract object that handles all the cost info for
         each ability and uses that. Could also hold the enumerated table for
@@ -39,6 +41,7 @@ public class PlayerCharacterMove : MonoBehaviour
     private BoxCollider p_slipColider;
     private PlayerCharacterAbilities player_stats;
     private GameObject currentWall;
+    private List<GameObject> fixWalls;
     private float p_groundDisplacement;
     private float p_wallDisplacement;
     private float movementX;
@@ -298,6 +301,7 @@ public class PlayerCharacterMove : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("tool"))
         {
+            toolAudio.Play();
             other.gameObject.SetActive(false);
             player_stats.player_tools += 1;
             // do more stuff
@@ -335,10 +339,12 @@ public class PlayerCharacterMove : MonoBehaviour
         {
             if (player_stats.player_tools >= 3)
             {
+                fixAudio.Play();
                 player_stats.player_tools -= 3;
                 // do stuff with renderer
                 brokenThing.material = fixedGreen;
                 fix_state = false;
+
                 currentWall = brokenThing.transform.GetChild(0).gameObject;
 
                 if (currentWall != null)

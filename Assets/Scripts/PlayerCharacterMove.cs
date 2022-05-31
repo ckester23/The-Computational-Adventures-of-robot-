@@ -74,6 +74,7 @@ public class PlayerCharacterMove : MonoBehaviour
     public Material fixedGreen;
 
     Renderer brokenThing;
+    Collider bt;
 
     //Stuff for vector calculations
     Vector3 z_coord;
@@ -314,7 +315,8 @@ public class PlayerCharacterMove : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("objective"))
         {
-            brokenThing = other.GetComponent<Renderer>();
+            //brokenThing = other.GetComponent<Renderer>();
+            bt = other;
             isTouchObject = true;
             doFix();
         }
@@ -329,7 +331,7 @@ public class PlayerCharacterMove : MonoBehaviour
             player_stats.player_coins += 1;
             coinAudio.Play();
             other.gameObject.SetActive(false);
-            
+
         }
     }
 
@@ -345,6 +347,7 @@ public class PlayerCharacterMove : MonoBehaviour
         {
             if (player_stats.player_tools >= 3)
             {
+                brokenThing = bt.GetComponent<Renderer>();
                 fixAudio.Play();
                 player_stats.player_tools -= 3;
                 // do stuff with renderer
@@ -357,13 +360,15 @@ public class PlayerCharacterMove : MonoBehaviour
                 {
                     currentWall.SetActive(false);
                 }
+
+                bt.enabled = false;
             }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.CompareTag("objective"))
         {
             isTouchObject = false;
         }

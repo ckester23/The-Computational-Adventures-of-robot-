@@ -47,6 +47,10 @@ public class PlayerCharacterMove : MonoBehaviour
     private BoxCollider p_slipColider;
     private PlayerCharacterAbilities player_stats;
     private GameObject currentWall;
+    private GameObject b_screen;
+    private GameObject f_screen;
+    private Light b_light;
+    private Light f_light;
     private List<GameObject> fixWalls;
     private float p_groundDisplacement;
     private float p_wallDisplacement;
@@ -77,7 +81,7 @@ public class PlayerCharacterMove : MonoBehaviour
 
     public Material fixedGreen;
 
-    Renderer brokenThing;
+    GameObject brokenThing;
     Collider bt;
 
     //Stuff for vector calculations
@@ -273,9 +277,6 @@ public class PlayerCharacterMove : MonoBehaviour
     // FixedUpdate is called at end of frame
     void FixedUpdate()
     {
-        Vector3 temp_posit = transform.position;
-
-        Debug.Log(p_Rigid.velocity);
         temp_Velocity = p_Rigid.velocity;
 
         //Sets velocity for movement instantly, avoiding acceleration
@@ -381,14 +382,22 @@ public class PlayerCharacterMove : MonoBehaviour
         {
             if (player_stats.player_tools >= 3)
             {
-                brokenThing = bt.GetComponent<Renderer>();
+                //brokenThing = bt.GetComponent<Renderer>();
+                Debug.Log("fixing");
+                brokenThing = bt.gameObject;
+                Debug.Log(brokenThing);
                 fixAudio.Play();
                 player_stats.player_tools -= 3;
                 // do stuff with renderer
-                brokenThing.material = fixedGreen;
-                fix_state = false;
-
                 currentWall = brokenThing.transform.GetChild(0).gameObject;
+
+                b_screen = brokenThing.transform.GetChild(2).gameObject;
+                b_screen.SetActive(false);
+
+                b_light = brokenThing.GetComponentInChildren<Light>();
+                b_light.color = Color.green;
+                //brokenThing.material = fixedGreen;
+                fix_state = false;
 
                 if (currentWall != null)
                 {

@@ -112,6 +112,8 @@ public class PlayerCharacterMove : MonoBehaviour
     void OnMove(InputValue movementValue)
     {
         isWalking = true;
+        p_animator.SetBool("isWalking", isWalking);
+
         old_direction = current_direction;
         //Determine direction of player movement
         retrieved_vector = movementValue.Get<Vector2>();
@@ -265,6 +267,9 @@ public class PlayerCharacterMove : MonoBehaviour
     // FixedUpdate is called at end of frame
     void FixedUpdate()
     {
+        Vector3 temp_posit = transform.position;
+
+        Debug.Log(p_Rigid.velocity);
         temp_Velocity = p_Rigid.velocity;
 
         //Sets velocity for movement instantly, avoiding acceleration
@@ -291,7 +296,18 @@ public class PlayerCharacterMove : MonoBehaviour
         doFix();
         GrabState(grabbing);
 
+        if (p_Rigid.velocity.x < 0.1f && p_Rigid.velocity.x > -0.1f)
+        {
+            isWalking = false;
+        }
+        else
+        { 
+            isWalking = true;
+        }
+        // do sound stuff
+
         p_animator.SetBool("isWalking", isWalking);
+       
 
     }
 

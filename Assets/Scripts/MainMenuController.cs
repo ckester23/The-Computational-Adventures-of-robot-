@@ -24,4 +24,9 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("End of Game");
     }
+
+    public void ReturnMain()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

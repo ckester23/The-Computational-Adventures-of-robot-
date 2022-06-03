@@ -382,13 +382,11 @@ public class PlayerCharacterMove : MonoBehaviour
         {
             if (player_stats.player_tools >= 3)
             {
-                //brokenThing = bt.GetComponent<Renderer>();
-                Debug.Log("fixing");
                 brokenThing = bt.gameObject;
-                Debug.Log(brokenThing);
+                
                 fixAudio.Play();
                 player_stats.player_tools -= 3;
-                // do stuff with renderer
+                
                 currentWall = brokenThing.transform.GetChild(0).gameObject;
 
                 b_screen = brokenThing.transform.GetChild(2).gameObject;

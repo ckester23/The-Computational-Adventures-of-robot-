@@ -19,4 +19,9 @@ public class MainMenuController : MonoBehaviour
     {
         SceneManager.LoadScene("Level 3");
     }
+
+    public void PlaySandbox()
+    {
+        SceneManager.LoadScene("End of Game");
+    }
 }

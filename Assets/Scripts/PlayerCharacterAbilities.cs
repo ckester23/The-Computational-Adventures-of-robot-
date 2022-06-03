@@ -113,10 +113,12 @@ public class PlayerCharacterAbilities : MonoBehaviour
 
     public void ApplyDeath(Vector3 source_displacement)
     {
-      if (block_enabled && blocking && player_energy > 0 && time_passed <= 0){
-          player_energy -= block_hit_energy;
-          time_passed = invincibility_period;
-          player_move.KnockBack(source_displacement);
+      if (block_enabled && blocking && player_energy > 0){
+          if (time_passed <= 0) {
+              player_energy -= block_hit_energy;
+              time_passed = invincibility_period;
+              player_move.KnockBack(source_displacement);
+          }
       }
       else {
           player_currenthealth = 0;

@@ -29,6 +29,7 @@ public class PlayerCharacterMove : MonoBehaviour
 
     Animator p_animator;
     bool isWalking = false;
+    bool isJumping = false;
 
 
     /* Todo: implement an abstract object that handles all the cost info for
@@ -230,10 +231,14 @@ public class PlayerCharacterMove : MonoBehaviour
     void OnJump()
     {
       //If the player is allowed to jump, let them jump
-
+      isWalking = false;
+      
       if (!jumps_used) {
           //play sound
           jumpAudio.Play();
+          
+          isJumping = true;
+          p_animator.Play("Robot_002|jump");
 
           Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
           p_Rigid.AddForce(jump - p_Rigid.velocity, ForceMode.VelocityChange);
@@ -256,6 +261,7 @@ public class PlayerCharacterMove : MonoBehaviour
               jumps_used = true;
           }
       }
+      ;
     }
 
     // Update is called once per frame

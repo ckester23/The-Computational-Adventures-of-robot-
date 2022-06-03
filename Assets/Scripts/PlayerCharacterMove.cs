@@ -27,6 +27,9 @@ public class PlayerCharacterMove : MonoBehaviour
     public AudioSource pickAudio;
     public AudioSource toolAudio;
 
+    Animator p_animator;
+    bool isWalking = false;
+
 
     /* Todo: implement an abstract object that handles all the cost info for
         each ability and uses that. Could also hold the enumerated table for
@@ -96,6 +99,9 @@ public class PlayerCharacterMove : MonoBehaviour
 
         player_stats.respawnPoint = p_Rigid.transform.position;
 
+        p_animator = GetComponent<Animator>();
+        p_animator.SetBool("isWalking", isWalking);
+
         in_air = false;
 
         //SetCountText();
@@ -105,6 +111,7 @@ public class PlayerCharacterMove : MonoBehaviour
     //Case handling movement for player object
     void OnMove(InputValue movementValue)
     {
+        isWalking = true;
         old_direction = current_direction;
         //Determine direction of player movement
         retrieved_vector = movementValue.Get<Vector2>();
@@ -221,12 +228,14 @@ public class PlayerCharacterMove : MonoBehaviour
     void OnJump()
     {
       //If the player is allowed to jump, let them jump
+
       if (!jumps_used) {
           //play sound
           jumpAudio.Play();
 
           Vector3 jump = new Vector3(0.0f, 2 * jump_power, 0.0f);
           p_Rigid.AddForce(jump - p_Rigid.velocity, ForceMode.VelocityChange);
+          
 
           //If the player is in the air(meaning double jump has been used)
           //apply energy cost and disable additonal jumping
@@ -250,7 +259,7 @@ public class PlayerCharacterMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     // FixedUpdate is called at end of frame
@@ -263,6 +272,7 @@ public class PlayerCharacterMove : MonoBehaviour
             p_Velocity.Set(movementX > 0 ? speed : -speed, temp_Velocity.y, 0.0f);
             p_Rigid.AddForce(p_Velocity - temp_Velocity, ForceMode.VelocityChange);
         }
+        
         //WIP replaces gravity
         if (linear_decent && !on_ground) {
             p_Velocity.Set(temp_Velocity.x, -descent_speed, 0.0f);
@@ -280,6 +290,8 @@ public class PlayerCharacterMove : MonoBehaviour
 
         doFix();
         GrabState(grabbing);
+
+        p_animator.SetBool("isWalking", isWalking);
 
     }
 

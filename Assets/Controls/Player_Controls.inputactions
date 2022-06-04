@@ -363,6 +363,28 @@
                 },
                 {
                     "name": "",
+                    "id": "89f6db0f-029b-4e51-9821-197c668ba8f5",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallGrab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cbbba238-4748-42fb-b72f-3c56b4e24344",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WallGrab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "d4bd5ab8-a822-4ddf-a429-663b11518dfc",
                     "path": "<Keyboard>/k",
                     "interactions": "",
@@ -431,6 +453,28 @@
                     "name": "",
                     "id": "a9919986-c3da-4510-beeb-8db786c6dac9",
                     "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f8f87f7-da14-4990-80f2-8627eb964255",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9248567d-ee59-423c-a49b-650f0862f992",
+                    "path": "<Keyboard>/m",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

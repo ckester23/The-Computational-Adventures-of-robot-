@@ -28,6 +28,8 @@ public class PlayerCharacterAbilities : MonoBehaviour
     private GameObject hurt_box;
     private GameObject block_field;
 
+    public ToggleMenu UI;
+
     private float time_passed;
     private float attack_time_passed;
     private bool absorb_state = false;
@@ -59,6 +61,10 @@ public class PlayerCharacterAbilities : MonoBehaviour
 
     void OnAttack() {
         DoAttack();
+    }
+
+    void OnToggleMenu(){
+        UI.ToggleOverlay();
     }
 
     void DoAttack() {

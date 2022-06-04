@@ -7,7 +7,7 @@ public class ToggleMenu : MonoBehaviour
 
     public GameObject overlay;
 
-    void OnToggleMenu(){
+    public void ToggleOverlay(){
         overlay.SetActive(!overlay.activeSelf);
     }
 }
